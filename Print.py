@@ -1,0 +1,10 @@
+print("Hello world")
+print("Hi")
+print("I know what print does")
+print("Do you?")
+print("Why can´t I run this")
+print("Oh!")
+print("Because I need to stop my program")
+print("But why don´t I need to do that now?")
+for i in range (10000):
+    print("I like this",i)
