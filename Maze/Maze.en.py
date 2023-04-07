@@ -30,7 +30,7 @@ def showState():
   print("---------------------------")
 
 #The inventory is empty at startup
-inventory = ["Key","Sword"]
+inventory = []
 gone = 0
 #A dictionary connects a room with other rooms
 room = {
