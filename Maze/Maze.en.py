@@ -32,6 +32,7 @@ def showState():
 #The inventory is empty at startup
 inventory = []
 gone = 0
+uses = 2
 #A dictionary connects a room with other rooms
 room = {
 #Ground Floor
@@ -188,6 +189,8 @@ while True:
       inventory += [move[1]]
       #show a helpful message
       print(move[1] + ' has been taken!')
+      if move[1] == 'Sword':
+        uses + 2
       #delete the item from the room
       del room[currentRoom]['item']
     #Otherwise, the item is not present and cannot be taken.
@@ -195,9 +198,13 @@ while True:
       #Tell the player that he can't take this item.
       print("You can't take " + move[1] + '!')
       
-  #The player loses when he enters a room with a monster
+  #The player loses when he enters a room with a monster if he doesn't have a sword
   if 'item' in room[currentRoom] and 'Monster' in room[currentRoom]['item'] and 'Sword' in inventory:
     print('You made the monster faint, but it will wake up soon!')
+    uses - 1
+    if uses == 0:
+      del inventory ['Sword']
+      print('Your sword broke!')
   elif "item" in room[currentRoom] and 'Monster' in room[currentRoom]['item']:  
     print('You have been eaten by a hungry monster... GAME OVER!')
     currentRoom = 'Corridor (Left, Right)'
@@ -211,8 +218,7 @@ while True:
   
   if currentRoom == 'Door (backward, forward)' and not 'Key' in inventory: 
     print("You need a key")
-    current
-    Room = 'Corridor (Left, Right)'
+    currentRoom = 'Corridor (Left, Right)'
     
 if 'Mysterious Shard 1/3' in inventory and 'Mysterious Shard 2/3' in inventory and 'Mysterious Shard 3/3' in inventory and not gone == 1:
     print('All Shards have been found! You have discovered a new room!')
