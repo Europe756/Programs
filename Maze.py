@@ -159,7 +159,7 @@ room = {
          }
 
 #At the start the player is in the Corridor
-currentRoom = 'Balcony (Backward)'
+currentRoom = 'Corridor (Left, Right)'
 showTitle()
 showObjectives()
 showInstructions()
