@@ -1,23 +1,26 @@
 #!/bin/python3
 
-def showTitle()
+def showTitle():
       print('''
 RPG Game (Labyrinth)
 ========
 ''')
-
-def showObjectives()
-      print('''
-Find the key and the potion, then try to escape to the garden.
+mainObjectives = '''Find the key and the potion, then try to escape to the garden.
 Don't let the monsters eat you!
-''')
+'''
+sideObjectives = ''
+
+def showObjectives():
+      print('''
+Main Objective: ''' + mainObjectives)
+      
+      if sideObjectives is not '':
+        print('''Sidequests:
+''' + str(sideObjectives))
 
 def showInstructions():
     #show a main menu and the possible commands
     print('''
-Find the key and the potion, then try to escape to the garden.
-Don't let the monsters eat you!
-
 Connections:
   [room]->([direction], [direction])
 
@@ -229,10 +232,17 @@ while True:
     print("You need a key")
     currentRoom = 'Corridor (Left, Right)'
     
-if 'Mysterious-Shard-1/3' in inventory and 'Mysterious-Shard-2/3' in inventory and 'Mysterious-Shard-3/3' in inventory and not gone == 1:
+  if 'Mysterious-Shard-1/3' in inventory and 'Mysterious-Shard-2/3' in inventory and 'Mysterious-Shard-3/3' in inventory and not gone == 1:
+    showObjectives()
     print('All Shards have been found! You have discovered a new room!')
     print('You can only come here once, if you leave there is no way back')
     print('"e" is the only exit')
     print('You have to find out the other ways yourself')
     currentRoom = '§$%%&$%@ (Up)'
     gone = 1
+
+  if 'Mysterious-Shard-1/3' in inventory or 'Mysterious-Shard-2/3' in inventory or 'Mysterious-Shard-3/3' in inventory and not shard == 1:
+       shard = 1
+       print('New Sidequest unlocked')
+       sideObjectives = sideObjectives + 'Collect all three Shards, '
+       showObjectives()
