@@ -1,11 +1,20 @@
 #!/bin/python3
 
+def showTitle()
+      print('''
+RPG Game (Labyrinth)
+========
+''')
+
+def showObjectives()
+      print('''
+Find the key and the potion, then try to escape to the garden.
+Don't let the monsters eat you!
+''')
+
 def showInstructions():
     #show a main menu and the possible commands
     print('''
-RPG Game (Labyrinth)
-========
-
 Find the key and the potion, then try to escape to the garden.
 Don't let the monsters eat you!
 
@@ -148,7 +157,8 @@ room = {
 
 #At the start the player is in the Corridor
 currentRoom = 'Balcony (Backward)'
-
+showTitle()
+showObjectives()
 showInstructions()
 
 #Eternal loop
@@ -219,7 +229,7 @@ while True:
     print("You need a key")
     currentRoom = 'Corridor (Left, Right)'
     
-if 'Mysterious-Shard-1/3' in inventory and 'Mysterious-Shard-2/3' in inventory and 'Mysterious-Shard 3/3' in inventory and not gone == 1:
+if 'Mysterious-Shard-1/3' in inventory and 'Mysterious-Shard-2/3' in inventory and 'Mysterious-Shard-3/3' in inventory and not gone == 1:
     print('All Shards have been found! You have discovered a new room!')
     print('You can only come here once, if you leave there is no way back')
     print('"e" is the only exit')
