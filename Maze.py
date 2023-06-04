@@ -9,14 +9,15 @@ mainObjectives = '''Find the key and the potion, then try to escape to the garde
 Don't let the monsters eat you!
 '''
 sideObjectives = ''
+sideObjectives += 'Collect all three Shards'
 
 def showObjectives():
-      print('''
+    print('''
 Main Objective: ''' + mainObjectives)
       
-      if sideObjectives is not '':
-        print('''Sidequests:
-''' + str(sideObjectives))
+    if not sideObjectives == '':
+      print('''Sidequests:
+''' + sideObjectives)
 
 def showInstructions():
     #show a main menu and the possible commands
@@ -168,7 +169,7 @@ showInstructions()
 
 while True:
 
-  showState()
+  showState
 
   #Wait for the 'next move' of the player
   #.split() splits it into an array
@@ -244,5 +245,5 @@ while True:
   if 'Mysterious-Shard-1/3' in inventory or 'Mysterious-Shard-2/3' in inventory or 'Mysterious-Shard-3/3' in inventory and not shard == 1:
        shard = 1
        print('New Sidequest unlocked')
-       sideObjectives = sideObjectives + 'Collect all three Shards, '
+       sideObjectives += 'Collect all three Shards, '
        showObjectives()
