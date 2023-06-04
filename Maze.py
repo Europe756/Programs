@@ -9,7 +9,6 @@ mainObjectives = '''Find the key and the potion, then try to escape to the garde
 Don't let the monsters eat you!
 '''
 sideObjectives = ''
-sideObjectives += 'Collect all three Shards'
 
 def showObjectives():
     print('''
